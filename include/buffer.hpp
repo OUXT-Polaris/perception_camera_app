@@ -1,6 +1,9 @@
+#pragma once
+
 #include <chrono>
 #include <opencv2/opencv.hpp>
 #include <queue>
+#include <unordered_map>
 
 namespace perception_camera_app {
 template <typename T> class Data {
@@ -20,11 +23,11 @@ class Buffer {
 public:
   explicit Buffer(const std::chrono::milliseconds &duration);
   const std::chrono::milliseconds duration;
-  void emplace(const cv::Mat &image);
-  Data<cv::Mat> front();
+  void emplace(const std::string &key, const cv::Mat &image);
+  Data<cv::Mat> front(const std::string &key);
 
 private:
-  void popOld();
-  std::queue<Data<cv::Mat>> queue_;
+  void popOld(const std::string &key);
+  std::unordered_map<std::string, std::queue<Data<cv::Mat>>> queue_;
 };
 } // namespace perception_camera_app
