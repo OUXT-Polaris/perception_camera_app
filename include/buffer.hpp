@@ -1,6 +1,6 @@
 #include <chrono>
 #include <opencv2/opencv.hpp>
-#include <vector>
+#include <queue>
 
 namespace perception_camera_app {
 template <typename T> class Data {
@@ -16,12 +16,12 @@ template <typename T> bool operator<(const Data<T> &t1, const Data<T> &t2) {
   return t1.stamp < t2.stamp;
 }
 
-class Buffer {
+class Buffer : public std::queue<Data<cv::Mat>> {
 public:
-  explicit Buffer(
-      const std::chrono::duration<std::chrono::milliseconds> &duration);
+  explicit Buffer(const std::chrono::milliseconds &duration);
+  const std::chrono::milliseconds duration;
 
 private:
-  std::vector<Data<cv::Mat>> images_;
+  void popOld();
 };
 } // namespace perception_camera_app
