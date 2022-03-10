@@ -7,5 +7,5 @@ add_executable(perception_camera_app
   src/main.cpp
 )
 
-target_include_directories(perception_camera_app PUBLIC ${OpenCV_INCLUDE_DIRS})
+target_include_directories(perception_camera_app PUBLIC ${OpenCV_INCLUDE_DIRS} include)
 target_link_libraries(perception_camera_app ${OpenCV_LIBS})
