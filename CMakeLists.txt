@@ -4,7 +4,8 @@ project(perception_camera_app)
 find_package(OpenCV REQUIRED)
 add_executable(perception_camera_app
   src/buffer.cpp
-  src/component.cpp
+  src/job.cpp
+  src/dispatcher.cpp
   src/main.cpp
 )
 

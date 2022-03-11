@@ -1,5 +1,5 @@
 #pragma once
 
 namespace perception_camera_app {
-class Component {};
+class Job {};
 } // namespace perception_camera_app
