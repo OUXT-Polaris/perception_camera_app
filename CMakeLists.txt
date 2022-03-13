@@ -12,6 +12,7 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 add_executable(perception_camera_app
   src/publisher.cpp
   src/subscriber.cpp
+  src/conversion.cpp
   src/main.cpp
   ${PROTO_SRCS}
 )

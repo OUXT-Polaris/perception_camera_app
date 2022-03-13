@@ -1,22 +1,80 @@
 syntax = "proto3";
 
-package builtin_interfaces;
+package perception_camera_app;
 
 /**
  * Protobuf definition of unix timestamp.
  **/
 message Time {
   int32 sec = 1; // The seconds component, valid over all int32 values.
-  uint32 nanosec = 2; // The nanoseconds component, valid in the range [0, 10e9).
+  uint32 nanosec =
+      2; // The nanoseconds component, valid in the range [0, 10e9).
+}
+
+/**
+ * Protobuf definition of image format data.
+ * Currently, only unsigned char types are support.
+ **/
+
+message ImageFormat {
+  enum Enum {
+    UNKNOWN = 0;
+    CV8U = 1;
+    /*
+      CV8S = 2;
+      CV16U = 3;
+      CV16S = 4;
+      CV32S = 5;
+      CV32F = 6;
+      CV64F = 6;
+    */
+    CV8UC1 = 8;
+    CV8UC2 = 9;
+    CV8UC3 = 10;
+    CV8UC4 = 11;
+    /*
+      CV8SC1 = 12;
+      CV8SC2 = 13;
+      CV8SC3 = 14;
+      CV8SC4 = 15;
+      CV16UC1 = 16;
+      CV16UC2 = 17;
+      CV16UC3 = 18;
+      CV16UC4 = 19;
+      CV16SC1 = 20;
+      CV16SC2 = 21;
+      CV16SC3 = 22;
+      CV16SC4 = 23;
+      CV32SC1 = 24;
+      CV32SC2 = 25;
+      CV32SC3 = 26;
+      CV32SC4 = 27;
+      CV32FC1 = 28;
+      CV32FC2 = 29;
+      CV32FC3 = 30;
+      CV32FC4 = 31;
+      CV64FC1 = 32;
+      CV64FC2 = 33;
+      CV64FC3 = 34;
+      CV64FC4 = 35;
+    */
+  }
 }
 
 /**
  * Protobuf definition of image data.
-**/
+ **/
 message Image {
   bytes data = 1;
   uint32 width = 2;
   uint32 height = 3;
-  uint32 channel = 4;
-  Time stamp = 5;
+  uint32 format = 4;
+}
+
+/**
+ * Protobuf definition of image data with timestamp
+ **/
+message ImageStamped {
+  Time stamp = 1;
+  Image image = 2;
 }
