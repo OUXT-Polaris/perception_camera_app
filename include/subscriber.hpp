@@ -11,7 +11,7 @@ public:
   explicit Subscriber(const zmqpp::context &context, const std::string &topic);
 
 private:
-  const zmqpp::socket socket_;
+  zmqpp::socket socket_;
 };
 } // namespace perception_camera_app
 

@@ -15,6 +15,7 @@ add_library(perception_app_base SHARED
   src/publisher.cpp
   src/subscriber.cpp
   src/conversion.cpp
+  src/endpoint.cpp
   ${PROTO_SRCS}
 )
 
