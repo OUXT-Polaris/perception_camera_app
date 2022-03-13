@@ -9,6 +9,8 @@ set(PROTO_FILES
 )
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
+set(CMAKE_CXX_FLAGS "-O2 -std=c++17 -Wall")
+
 add_executable(perception_camera_app
   src/publisher.cpp
   src/subscriber.cpp

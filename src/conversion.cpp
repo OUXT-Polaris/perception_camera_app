@@ -73,4 +73,20 @@ perception_camera_app::Image convert(const cv::Mat &image) {
   }
   throw std::runtime_error("unsupported image format!!");
 }
+
+Time convert(const std::chrono::system_clock::time_point &time) {
+  Time proto;
+  std::int64_t seconds =
+      std::chrono::duration_cast<std::chrono::seconds>(time.time_since_epoch())
+          .count();
+  proto.set_sec(seconds);
+  std::int64_t nanoseconds =
+      std::chrono::duration_cast<std::chrono::nanoseconds>(
+          time.time_since_epoch())
+          .count();
+  proto.set_nanosec(nanoseconds - seconds * 1000000000);
+  return proto;
+}
+
+Time now() { return convert(std::chrono::system_clock::now()); }
 } // namespace perception_camera_app
