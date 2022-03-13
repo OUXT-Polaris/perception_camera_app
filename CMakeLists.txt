@@ -11,13 +11,12 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
 set(CMAKE_CXX_FLAGS "-O2 -std=c++17 -Wall")
 
-add_executable(perception_camera_app
+add_library(perception_app_base SHARED
   src/publisher.cpp
   src/subscriber.cpp
   src/conversion.cpp
-  src/main.cpp
   ${PROTO_SRCS}
 )
 
-target_include_directories(perception_camera_app PUBLIC ${CMAKE_BINARY_DIR} ${OpenCV_INCLUDE_DIRS} include)
-target_link_libraries(perception_camera_app ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} zmq zmqpp)
+target_include_directories(perception_app_base PUBLIC ${CMAKE_BINARY_DIR} ${OpenCV_INCLUDE_DIRS} include)
+target_link_libraries(perception_app_base ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} zmq zmqpp)
