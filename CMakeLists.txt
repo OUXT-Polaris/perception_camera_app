@@ -10,9 +10,8 @@ set(PROTO_FILES
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${PROTO_FILES})
 
 add_executable(perception_camera_app
-  src/buffer.cpp
-  src/job.cpp
-  src/dispatcher.cpp
+  src/publisher.cpp
+  src/subscriber.cpp
   src/main.cpp
   ${PROTO_SRCS}
 )
