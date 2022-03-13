@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package builtin_interfaces;
+
+/**
+ * Protobuf definition of unix timestamp.
+ **/
+message Time {
+  int32 sec = 1; // The seconds component, valid over all int32 values.
+  uint32 nanosec = 2; // The nanoseconds component, valid in the range [0, 10e9).
+}
+
+/**
+ * Protobuf definition of image data.
+**/
+message Image {
+  bytes data = 1;
+  uint32 width = 2;
+  uint32 height = 3;
+  uint32 channel = 4;
+  Time stamp = 5;
+}
