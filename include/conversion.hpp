@@ -9,23 +9,22 @@
 namespace perception_camera_app {
 cv::Mat convert(const perception_camera_app::Image &image);
 perception_camera_app::Image convert(const cv::Mat &image);
-perception_camera_app::ImageStamped convertAndStamp(const cv::Mat &image);
+perception_camera_app::ImageStamped
+convert(const cv::Mat &image,
+        const std::chrono::system_clock::time_point &time);
 Time convert(const std::chrono::system_clock::time_point &time);
 Time now();
 
-template <typename Proto> zmqpp::message toZMQ(const Proto &proto) {
-  zmqpp::message msg;
+template <typename Proto> void toZMQ(const Proto &proto, zmqpp::message &msg) {
   std::string serialized_str = "";
   proto.SerializeToString(&serialized_str);
   msg << serialized_str;
-  return msg;
 }
 
-template <typename Proto> Proto toProto(const zmqpp::message &msg) {
+template <typename Proto>
+void toProto(const zmqpp::message &msg, Proto &proto) {
   std::string serialized_str = msg.get(0);
-  Proto proto;
   proto.ParseFromString(serialized_str);
-  return proto;
 }
 } // namespace perception_camera_app
 

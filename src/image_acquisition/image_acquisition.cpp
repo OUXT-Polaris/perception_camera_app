@@ -23,13 +23,15 @@ void ImageAcquisition::capture() {
     open();
   }
   while (true) {
+    const auto capture_time = std::chrono::system_clock::now();
     const auto next_capture_time =
-        std::chrono::system_clock::now() +
+        capture_time +
         std::chrono::milliseconds(static_cast<int>(capture_duration));
     cv::Mat image;
     if (capture_->read(image)) {
       break;
     }
+    publisher_.publish(perception_camera_app::convert(image, capture_time));
     const auto now = std::chrono::system_clock::now();
     if (next_capture_time >= now) {
       continue;

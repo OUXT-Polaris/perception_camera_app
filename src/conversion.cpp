@@ -90,10 +90,12 @@ Time convert(const std::chrono::system_clock::time_point &time) {
 
 Time now() { return convert(std::chrono::system_clock::now()); }
 
-perception_camera_app::ImageStamped convertAndStamp(const cv::Mat &image) {
+perception_camera_app::ImageStamped
+convert(const cv::Mat &image,
+        const std::chrono::system_clock::time_point &time) {
   perception_camera_app::ImageStamped proto;
   *proto.mutable_image() = perception_camera_app::convert(image);
-  *proto.mutable_stamp() = now();
+  *proto.mutable_stamp() = convert(time);
   return proto;
 }
 } // namespace perception_camera_app

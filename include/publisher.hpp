@@ -23,7 +23,11 @@ public:
     socket_.bind(endpoint);
   }
 
-  void publish(const T &data) { socket_.send(toZMQ(data)); }
+  void publish(const T &data) {
+    zmqpp::message message;
+    toZMQ(data, message);
+    socket_.send(message);
+  }
 
 private:
   zmqpp::socket socket_;
