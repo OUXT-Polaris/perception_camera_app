@@ -19,6 +19,7 @@ class ImageAcquisition {
 public:
   explicit ImageAcquisition(uint32_t width, uint32_t height,
                             uint32_t frame_rate);
+  void capture();
   const uint32_t width;
   const uint32_t height;
   const uint32_t frame_rate;
@@ -27,7 +28,6 @@ public:
 private:
   std::string getGstreamerPipeline() const;
   void open();
-  void capture();
   std::shared_ptr<cv::VideoCapture> capture_;
 };
 } // namespace perception_camera_app
