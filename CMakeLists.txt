@@ -21,3 +21,11 @@ add_library(perception_app_base SHARED
 
 target_include_directories(perception_app_base PUBLIC ${CMAKE_BINARY_DIR} ${OpenCV_INCLUDE_DIRS} include)
 target_link_libraries(perception_app_base ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} zmq zmqpp)
+
+add_executable(image_acquisition
+  src/image_acquisition/main.cpp
+  src/image_acquisition/image_acquisition.cpp
+)
+
+target_include_directories(image_acquisition PUBLIC ${CMAKE_BINARY_DIR} ${OpenCV_INCLUDE_DIRS} include)
+target_link_libraries(image_acquisition ${OpenCV_LIBS} ${PROTOBUF_LIBRARY} zmq zmqpp)
