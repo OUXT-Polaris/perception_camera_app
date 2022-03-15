@@ -4,6 +4,7 @@
 #include <chrono>
 #include <conversion.hpp>
 #include <endpoint.hpp>
+#include <iostream>
 #include <memory>
 #include <perception_camera_app.pb.h>
 #include <zmqpp/zmqpp.hpp>
@@ -18,13 +19,14 @@ public:
       const std::string &endpoint = perception_camera_app::resolve(
           perception_camera_app::Transport::kTcp, "*", 8000))
       : socket_(context, zmqpp::socket_type::publish) {
-    // socket_.bind(endpoint);
+    std::cout << "Publisher connecting to : " << endpoint << std::endl;
+    socket_.bind(endpoint);
   }
 
-  void publish(const T &data) { zmqpp::message message = toZMQ(data); }
+  void publish(const T &data) { socket_.send(toZMQ(data)); }
 
 private:
-  const zmqpp::socket socket_;
+  zmqpp::socket socket_;
 };
 } // namespace perception_camera_app
 

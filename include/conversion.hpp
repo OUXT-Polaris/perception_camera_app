@@ -9,6 +9,7 @@
 namespace perception_camera_app {
 cv::Mat convert(const perception_camera_app::Image &image);
 perception_camera_app::Image convert(const cv::Mat &image);
+perception_camera_app::ImageStamped convertAndStamp(const cv::Mat &image);
 Time convert(const std::chrono::system_clock::time_point &time);
 Time now();
 

@@ -10,13 +10,13 @@ std::string resolve(Transport transport, const std::string &address,
     throw std::runtime_error("inproc can be used in only localhost.");
     break;
   case Transport::kTcp:
-    endpoint = "tcp:";
+    endpoint = "tcp://";
     break;
   case Transport::kUdp:
-    endpoint = "udp:";
+    endpoint = "udp://";
     break;
   }
-  endpoint = endpoint + address + std::to_string(port);
+  endpoint = endpoint + address + ":" + std::to_string(port);
   return endpoint;
 } // namespace perception_camera_app
 
