@@ -12,13 +12,15 @@
 #include <chrono>
 #include <memory>
 #include <opencv2/opencv.hpp>
+#include <publisher.hpp>
 #include <thread>
 
 namespace perception_camera_app {
 class ImageAcquisition {
 public:
-  explicit ImageAcquisition(uint32_t width, uint32_t height,
-                            uint32_t frame_rate);
+  explicit ImageAcquisition(const zmqpp::context &context,
+                            uint32_t width = 1280, uint32_t height = 720,
+                            uint32_t frame_rate = 30);
   void capture();
   const uint32_t width;
   const uint32_t height;
@@ -29,6 +31,8 @@ private:
   std::string getGstreamerPipeline() const;
   void open();
   std::shared_ptr<cv::VideoCapture> capture_;
+  perception_camera_app::Publisher<perception_camera_app::ImageStamped>
+      publisher_;
 };
 } // namespace perception_camera_app
 

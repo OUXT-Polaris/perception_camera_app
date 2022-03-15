@@ -1,7 +1,9 @@
 #include <image_acquisition/image_acquisition.hpp>
+#include <zmqpp/zmqpp.hpp>
 
 int main() {
-  perception_camera_app::ImageAcquisition image_acquisition(1280, 720, 30);
+  zmqpp::context context;
+  perception_camera_app::ImageAcquisition image_acquisition(context);
   while (true) {
     image_acquisition.capture();
   }
