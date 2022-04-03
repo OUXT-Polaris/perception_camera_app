@@ -27,7 +27,6 @@ cv::Mat convert(const perception_camera_app::Image &image) {
 
 perception_camera_app::Image convert(const cv::Mat &image) {
   if (image.type() == CV_8U) {
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     perception_camera_app::Image proto;
     proto.set_height(image.size().height);
     proto.set_width(image.size().width);
@@ -37,7 +36,6 @@ perception_camera_app::Image convert(const cv::Mat &image) {
     return proto;
   }
   if (image.type() == CV_8UC1) {
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     perception_camera_app::Image proto;
     proto.set_height(image.size().height);
     proto.set_width(image.size().width);
@@ -47,7 +45,6 @@ perception_camera_app::Image convert(const cv::Mat &image) {
     return proto;
   }
   if (image.type() == CV_8UC2) {
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     perception_camera_app::Image proto;
     proto.set_height(image.size().height);
     proto.set_width(image.size().width);
@@ -57,7 +54,6 @@ perception_camera_app::Image convert(const cv::Mat &image) {
     return proto;
   }
   if (image.type() == CV_8UC3) {
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     perception_camera_app::Image proto;
     proto.set_height(image.size().height);
     proto.set_width(image.size().width);
@@ -67,7 +63,6 @@ perception_camera_app::Image convert(const cv::Mat &image) {
     return proto;
   }
   if (image.type() == CV_8UC4) {
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     perception_camera_app::Image proto;
     proto.set_height(image.size().height);
     proto.set_width(image.size().width);
