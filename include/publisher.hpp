@@ -24,7 +24,7 @@ public:
   void publish(const T &data) {
     zmqpp::message message;
     toZMQ(data, message);
-    string text;
+    std::string text;
     message >> text;
     std::cout << text << std::endl; 
     socket_.send(message);
