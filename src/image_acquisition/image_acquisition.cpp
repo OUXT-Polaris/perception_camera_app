@@ -29,7 +29,7 @@ void ImageAcquisition::capture() {
         std::chrono::milliseconds(static_cast<int>(capture_duration));
     cv::Mat image;
     std::cout << "image_captured" << std::endl;
-    if (capture_->read(image)) {
+    if (!capture_->read(image)) {
       std::cout << __FILE__ << "," << __LINE__ << std::endl;
       break;
     }
