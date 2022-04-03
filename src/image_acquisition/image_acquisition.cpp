@@ -28,6 +28,7 @@ void ImageAcquisition::capture() {
         capture_time +
         std::chrono::milliseconds(static_cast<int>(capture_duration));
     cv::Mat image;
+    std::cout << "image_captured" << std::endl;
     if (capture_->read(image)) {
       break;
     }
