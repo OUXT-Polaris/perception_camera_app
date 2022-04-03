@@ -28,14 +28,10 @@ void ImageAcquisition::capture() {
         capture_time +
         std::chrono::milliseconds(static_cast<int>(capture_duration));
     cv::Mat image;
-    std::cout << "image_captured" << std::endl;
     if (!capture_->read(image)) {
-      std::cout << __FILE__ << "," << __LINE__ << std::endl;
       break;
     }
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     publisher_.publish(perception_camera_app::convert(image, capture_time));
-    std::cout << __FILE__ << "," << __LINE__ << std::endl;
     const auto now = std::chrono::system_clock::now();
     if (next_capture_time >= now) {
       continue;
