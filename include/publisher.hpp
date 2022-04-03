@@ -9,8 +9,6 @@
 #include <perception_camera_app.pb.h>
 #include <zmqpp/zmqpp.hpp>
 
-static const std::string PUBLISH_ENDPOINT = "tcp://*:4242";
-
 namespace perception_camera_app {
 template <typename T> class Publisher {
 public:
@@ -26,7 +24,7 @@ public:
   void publish(const T &data) {
     zmqpp::message message;
     toZMQ(data, message);
-    std::cout << __FILE__ << "," << __LINE__ << std::endl; 
+    std::cout << message << std::endl; 
     socket_.send(message);
   }
 
