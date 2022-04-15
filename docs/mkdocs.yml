@@ -1,5 +1,5 @@
 # Project information
-site_name: OUXT Polaris Development Automation Tool
+site_name: Application for perception camera
 site_url: https://ouxt-polaris.github.io/perception_camera_app/
 site_author: Sanada Tatsuya
 site_description: ''
@@ -68,7 +68,8 @@ extra:
       link: mailto:<ouxt.polaris.robotx@gmail.com>
 
 extra_css:
-  - https://raw.githubusercontent.com/OUXT-Polaris/website_resources/master/stylesheets/extra.css
+  - stylesheets/extra.css
+  # - https://raw.githubusercontent.com/OUXT-Polaris/website_resources/master/stylesheets/extra.css
   - https://use.fontawesome.com/releases/v5.15.0/css/all.css
   - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
 
