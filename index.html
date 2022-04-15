@@ -9,13 +9,13 @@
 <link href="https://ouxt-polaris.github.io/perception_camera_app/" rel="canonical"/>
 <link href="images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.0, mkdocs-material-8.2.9" name="generator"/>
-<title>OUXT Polaris Development Automation Tool</title>
+<title>Application for perception camera</title>
 <link href="assets/stylesheets/main.120efc48.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.9647289d.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="https://raw.githubusercontent.com/OUXT-Polaris/website_resources/master/stylesheets/extra.css" rel="stylesheet"/>
+<link href="stylesheets/extra.css" rel="stylesheet"/>
 <link href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" rel="stylesheet"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
 <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -33,7 +33,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="OUXT Polaris Development Automation Tool" class="md-header__button md-logo" data-md-component="logo" href="." title="OUXT Polaris Development Automation Tool">
+<a aria-label="Application for perception camera" class="md-header__button md-logo" data-md-component="logo" href="." title="Application for perception camera">
 <svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M9.375 233.4C3.375 239.4 0 247.5 0 256v128c0 8.5 3.375 16.62 9.375 22.62S23.5 416 32 416h32V224H32c-8.5 0-16.62 3.4-22.625 9.4zM464 96H352V32c0-17.62-14.38-32-32-32s-32 14.38-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V176c0-44.2-35.7-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.12 0-40-17.88-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm214.6-62.6c-6-6-14.1-9.4-22.6-9.4h-32v192h32c8.5 0 16.62-3.375 22.62-9.375S640 392.5 640 384V256c0-8.5-3.4-16.6-9.4-22.6z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -43,7 +43,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            OUXT Polaris Development Automation Tool
+            Application for perception camera
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -116,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="OUXT Polaris Development Automation Tool" class="md-nav__button md-logo" data-md-component="logo" href="." title="OUXT Polaris Development Automation Tool">
+<a aria-label="Application for perception camera" class="md-nav__button md-logo" data-md-component="logo" href="." title="Application for perception camera">
 <svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M9.375 233.4C3.375 239.4 0 247.5 0 256v128c0 8.5 3.375 16.62 9.375 22.62S23.5 416 32 416h32V224H32c-8.5 0-16.62 3.4-22.625 9.4zM464 96H352V32c0-17.62-14.38-32-32-32s-32 14.38-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V176c0-44.2-35.7-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.12 0-40-17.88-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm214.6-62.6c-6-6-14.1-9.4-22.6-9.4h-32v192h32c8.5 0 16.62-3.375 22.62-9.375S640 392.5 640 384V256c0-8.5-3.4-16.6-9.4-22.6z"></path></svg>
 </a>
-    OUXT Polaris Development Automation Tool
+    Application for perception camera
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/OUXT-Polaris/perception_camera_app" title="Go to repository">
