@@ -2,4 +2,4 @@ sudo apt update && sudo apt install libzmqpp-dev libprotobuf-dev protobuf-compil
 mkdir build
 cd build
 cmake ../
-amke -j4
+make -j4
